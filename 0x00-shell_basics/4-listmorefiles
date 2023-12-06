@@ -1,2 +1,2 @@
 #!/bin/bash
-task 4
+ls -al
