@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f,d -empty -exec ls -aR {} +
+find . -type f,d -empty -printf "%f\n"
