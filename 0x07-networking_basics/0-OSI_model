@@ -1,0 +1,29 @@
+What is the OSI model?
+The OSI (Open Systems Interconnection)
+model is a conceptual framework that defines how computers communicate with each other over a network.
+It consists of seven layers, each with its own specific function and set of protocols.
+The Physical Layer
+The Data Link Layer
+The Network Layer
+The Transport Layer
+The Session Layer
+The Presentation Layer
+The Application Layer
+
+How is the OSI model organized?
+Starting from the bottom,
+the first layer is the physical layer,
+which deals with the physical aspects of transmitting data such as cables,
+The second layer is the data link layer,
+which is responsible for establishing and maintaining communication
+between two devices on the same network.
+The third layer is the network layer,
+which handles the routing of data between networks.
+The fourth layer is the transport layer,
+which ensures reliable transmission of data between two devices.
+The fifth layer is the session layer,
+which establishes and manages sessions between applications.
+The sixth layer is the presentation layer,
+which deals with the syntax and semantics of the data being transmitted.
+the seventh layer is the application layer,
+which provides services to applications for network communication.
