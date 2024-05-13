@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #add new host
-/etc/hosts 127.0.0.2 localhost
+/etc/hosts "127.0.0.2 localhost"
 /etc/hosts 8.8.8.8 facebook.com
