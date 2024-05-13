@@ -1,4 +1,3 @@
-What is the OSI model?
 The OSI (Open Systems Interconnection)
 model is a conceptual framework that defines how computers communicate with each other over a network.
 It consists of seven layers, each with its own specific function and set of protocols.
@@ -10,7 +9,6 @@ The Session Layer
 The Presentation Layer
 The Application Layer
 
-How is the OSI model organized?
 Starting from the bottom,
 the first layer is the physical layer,
 which deals with the physical aspects of transmitting data such as cables,
