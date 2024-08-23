@@ -19,7 +19,7 @@ file { $limit_conf_file:
 
 # Reload PAM if changes
 exec { 'reload_pam':
-  command     => "/bin/pkill -HUP -u holberton bash",
+  command     => '/bin/pkill -HUP -u holberton bash',
   refreshonly => true,
   subscribe   => File[$limit_conf_file],
 }
