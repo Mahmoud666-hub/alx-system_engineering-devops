@@ -1,21 +1,52 @@
 server {
-        listen 80;
-        server_name airbnb.com;
-        root /var/www/html;
+    listen 80 default_server;
+    listen [::]:80 default_server;
 
-        index  index.html index.html;
-        
-        location /airbnb-onepage/ {
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name 3.90.70.233;
+
+    location /hbnb_static {
+        alias /data/web_static/current/;
+    }
+
+    error_page 404 /custom_404.html;
+
+    location /redirect_me {
+        return 301 https://www.linkedin.com/in/mahmoud-ramadan-b231aa2a2/;
+
+;
+    }
+
+    location /airbnb-onepage/ {
         proxy_pass http://127.0.0.1:5000;
-        }
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
 
-        error_page 404 /404.html;
-        location = /404.html {
-            root /usr/share/nginx/html;
-            internal;
-        }
+    location /airbnb-dynamic/number_odd_or_even/ {
+        rewrite ^/airbnb-dynamic/number_odd_or_even/(\d+)$ /number_odd_or_even/$1 break;
+        proxy_pass http://127.0.0.1:5001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+     }
 
-        location / {
-            # other conf if any
-        }
+    location /api/ {
+        proxy_pass http://127.0.0.1:5002/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        add_header X-Served-By $hostname;
+        root /var/www/html;
+        index index.nginx-debian.html;
+        try_files $uri $uri/ =404;
+    }
 }
